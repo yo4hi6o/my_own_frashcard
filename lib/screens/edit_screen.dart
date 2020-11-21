@@ -32,7 +32,7 @@ class _EditScreenState extends State<EditScreen> {
     super.initState();
     if (widget.status == EditStatus.ADD) {
       _isQuestionEnabled = true;
-      _titleText = "新しい単語の追加";
+      _titleText = "新しい単語の追加の変更";
       questionController.text = "";
       answerController.text = "";
     } else {
