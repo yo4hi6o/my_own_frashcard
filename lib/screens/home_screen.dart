@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 10.0,
             ),
             //ラジオボタン,
-            _radioButtons(),
+            //_radioButtons(),
+            //切替トグル（switch)
+            _switch(),
             SizedBox(
               height: 30.0,
             ),
@@ -116,6 +118,23 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  Widget _switch() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: SwitchListTile(
+        title: Text("暗記済みの単語を含む"),
+        value: isIncludedMemorizedWord,
+        onChanged: (value){
+          setState(() {
+            isIncludedMemorizedWord = value;
+          });
+        },
+        secondary: Icon(Icons.sort),
+      ),
+    );
+
+  }
+
   _startWordListScreen(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => WordListScreen()));
@@ -129,4 +148,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   isIncludedMemorizedWord: isIncludedMemorizedWord,
                 )));
   }
+
+
 }
